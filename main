@@ -13,6 +13,15 @@
 			{
 			  alert("hi");
 			}
+			
+			function Hero(NAME)
+			{
+				this.name = NAME;
+				
+				this.str = 0;
+				this.def = 0;
+				this.health = 0;
+			}
 		</script>	
 	</head>
 	<body onload = "initialize();">
