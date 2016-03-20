@@ -9,9 +9,12 @@
 		
 		<script src = "utilities.js"></script>
 		<script>
-			function initialize()
 			{
-			  missionNames = [["Cat stuck in a tree", 1], ["Group of thugs loitering", 2], ["Bank robbery", 3], ["Alien invasion", 5], ["Metoer hitting the earth", 8]];
+			  missionNames = [["Cat stuck in a tree", "Tree", 1], ["Group of thugs loitering", "Thugs", 2], ["Bank robbery", "Robbers", 3], ["Alien invasion", "Aliens", 5], ["Metoer hitting the earth", "Meteor", 8]];
+			  
+			  /********
+			  help me make more missions [mission name, enemy, difficulty]
+			  ********/
 			  
 			  missions = [];
 			}
@@ -26,8 +29,7 @@
 				this.skills = [];
 				
 				this.str = 0; //overall damage increase
-				this.damage = 10 * this.str;
-				
+					this.damage = 10 * this.str;
 				this.def = 0; //take less damage
 				this.con = 0; //increase health
 				this.int = 0; //skill damage increase
@@ -49,9 +51,10 @@
 				}
 			}
 			
-			function Mission(NAME, DIFFICULTY)
+			function Mission(NAME, ENEMY, DIFFICULTY)
 			{
 				this.name = NAME;
+				this.enemy = ENEMY;
 				
 				this.damage = DIFFICULTY * 10;
 				this.health = DIFFICULTY * getRandomInteger(24, 60);
@@ -73,7 +76,7 @@
 			{
 				var randMission = missionNames[getRandomInteger(0, missionNames.length - 1)];
 				
-				missions.push(new Mission(randMission [0], randMission [1]))
+				missions.push(new Mission(randMission [0], randMission [1], randMission [2]));
 			}
 		</script>	
 	</head>
