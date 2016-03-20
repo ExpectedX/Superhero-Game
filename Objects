@@ -1,0 +1,57 @@
+function Hero(NAME)
+{
+	this.name = NAME;
+	
+	this.health = 100;
+	this.level = 1;
+	this.exp = 0;
+	this.skills = [];
+	
+	this.str = 0; //overall damage increase
+		this.damage = 10 * this.str;
+	this.def = 0; //take less damage
+	this.con = 0; //increase health
+	this.int = 0; //skill damage increase
+	
+	this.restoreHealth = function()
+	{
+		this.health = 100 + this.con * 5;
+	}
+	
+	this.getSkill = function(SKILL)
+	{
+		if (this.skills.lenght < 4) //max 4 skills
+			this.skills.push(SKILL);
+	}
+	
+	this.attack = function()
+	{
+		return Math.floor(this.damage * getRandomInteger(8, 12) * 0.1);
+	}
+}
+
+function Mission(NAME, ENEMY, DIFFICULTY)
+{
+	this.name = NAME;
+	this.enemy = ENEMY;
+	
+	if (DIFFICULTY <= 1)
+		this.difficulty = DIFFICULTY;
+	else
+		this.difficulty = DIFFICULTY - getRandomInteger(-1, 1);
+		
+	this.damage = this.difficulty * 10;
+	this.health = this.difficulty * getRandomInteger(24, 60);
+	
+	this.exp = this.difficulty * getRandomInteger(10, 20);
+	
+	this.attack = function()
+	{
+		return Math.floor(this.damage * getRandomInteger(8, 12) * 0.1);
+	}
+	
+	/* this.recommendedStats = function(HERO)
+	{
+		if (HERO.str)
+	} */
+}
