@@ -9,16 +9,25 @@
 		
 		<script src = "utilities.js"></script>
 		<script>
+			function initialize()
+			{
+			  missionNames = [["Cat stuck in a tree", 1], ["Group of thugs loitering", 2], ["Bank robbery", 3], ["Alien invasion", 5], ["Metoer hitting the earth", 8]];
+			  
+			  missions = [];
+			}
+			
 			function Hero(NAME)
 			{
 				this.name = NAME;
 				
 				this.health = 100;
+				this.level = 1;
 				this.exp = 0;
 				this.skills = [];
 				
 				this.str = 0; //overall damage increase
 				this.damage = 10 * this.str;
+				
 				this.def = 0; //take less damage
 				this.con = 0; //increase health
 				this.int = 0; //skill damage increase
@@ -30,7 +39,8 @@
 				
 				this.getSkill = function(SKILL)
 				{
-					this.skills.push(SKILL);
+					if (this.skills.lenght < 4) //max 4 skills
+						this.skills.push(SKILL);
 				}
 				
 				this.attack = function()
@@ -39,19 +49,31 @@
 				}
 			}
 			
-			function mission(NAME, DAMAGE, HEALTH, DIFFICULTY)
+			function Mission(NAME, DIFFICULTY)
 			{
 				this.name = NAME;
 				
-				this.damage = DAMAGE;
-				this.health = HEALTH;
+				this.damage = DIFFICULTY * 10;
+				this.health = DIFFICULTY * getRandomInteger(24, 60);
 				
-				this.exp = getRandomInteger(10, 20) * DIFFICULTY;
+				this.exp = DIFFICULTY * getRandomInteger(10, 20);
 				
 				this.attack = function()
 				{
 					return Math.floor(this.damage * getRandomInteger(8, 12) * 0.1);
 				}
+				
+				/* this.recommendedStats = function(HERO)
+				{
+					if (HERO.str)
+				} */
+			}
+			
+			function generateMission()
+			{
+				var randMission = missionNames[getRandomInteger(0, missionNames.length - 1)];
+				
+				missions.push(new Mission(randMission [0], randMission [1]))
 			}
 		</script>	
 	</head>
