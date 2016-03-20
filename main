@@ -11,7 +11,7 @@
 		<script>
 			function initialize()
 			{
-			  alert("hi");
+			  alert("I AM SUPERMAN!");
 			}
 			
 			function Hero(NAME)
@@ -22,7 +22,6 @@
 				this.def = 0;
 				this.health = 0;
 			}
-			
 		</script>	
 	</head>
 	<body onload = "initialize();">
