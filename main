@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<!-- Zheng Lu -->
+
+<html>
+	<head>
+	
+		<link rel = "stylesheet" href = "css.css" />
+		<title></title>
+		
+		<script src = "utilities.js"></script>
+		<script>
+			function initialize()
+			{
+			  alert("hi");
+			}
+		</script>	
+	</head>
+	<body onload = "initialize();">
+	
+	</body>
+</html>
