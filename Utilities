@@ -1,0 +1,11 @@
+function getRandomInteger(lower,upper)
+{
+	if(lower > upper)
+	{
+		return null;
+	}
+	
+	var multiplier = upper - lower + 1;
+	
+	return parseInt(Math.random() * multiplier) + lower;
+}
