@@ -37,7 +37,13 @@
 			
 			function checkLevelUp()
 			{
+				expToLevelUp = Math.pow(player.level, 2) * 2 + 150;
 				
+				if (player.exp >= expToLevelUp)
+				{
+					player.level ++;
+					player.exp = 0;
+				}
 			}
 		</script>	
 	</head>
