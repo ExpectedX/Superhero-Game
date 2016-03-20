@@ -18,7 +18,7 @@
 				this.skills = [];
 				
 				this.str = 0; //overall damage increase
-					this.damage = 10 * this.str;
+				this.damage = 10 * this.str;
 				this.def = 0; //take less damage
 				this.con = 0; //increase health
 				this.int = 0; //skill damage increase
