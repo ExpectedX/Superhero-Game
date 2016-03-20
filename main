@@ -9,11 +9,6 @@
 		
 		<script src = "utilities.js"></script>
 		<script>
-			function initialize()
-			{
-			  alert("I AM SUPERMAN!");
-			}
-			
 			function Hero(NAME)
 			{
 				this.name = NAME;
@@ -23,6 +18,7 @@
 				this.skills = [];
 				
 				this.str = 0; //overall damage increase
+					this.damage = 10 * this.str;
 				this.def = 0; //take less damage
 				this.con = 0; //increase health
 				this.int = 0; //skill damage increase
@@ -31,16 +27,31 @@
 				{
 					this.health = 100 + this.con * 5;
 				}
+				
+				this.getSkill = function(SKILL)
+				{
+					this.skills.push(SKILL);
+				}
+				
+				this.attack = function()
+				{
+					return Math.floor(this.damage * getRandomInteger(8, 12) * 0.1);
+				}
 			}
 			
-			function mission(NAME, DAMAGE, HEALTH)
+			function mission(NAME, DAMAGE, HEALTH, DIFFICULTY)
 			{
 				this.name = NAME;
 				
 				this.damage = DAMAGE;
 				this.health = HEALTH;
 				
-				this.exp = EXP;
+				this.exp = getRandomInteger(10, 20) * DIFFICULTY;
+				
+				this.attack = function()
+				{
+					return Math.floor(this.damage * getRandomInteger(8, 12) * 0.1);
+				}
 			}
 		</script>	
 	</head>
