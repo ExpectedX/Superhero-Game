@@ -18,9 +18,17 @@
 			{
 				this.name = NAME;
 				
-				this.str = 0;
-				this.def = 0;
-				this.health = 0;
+				this.health = 100;
+				
+				this.str = 0; //overall damage increase
+				this.def = 0; //take less damage
+				this.con = 0; //increase health
+				this.int = 0; //skill damage increase
+				
+				this.restoreHealth = function()
+				{
+					this.health = 100 + this.con * 5;
+				}
 			}
 		</script>	
 	</head>
