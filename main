@@ -19,6 +19,8 @@
 				this.name = NAME;
 				
 				this.health = 100;
+				this.exp = 0;
+				this.skills = [];
 				
 				this.str = 0; //overall damage increase
 				this.def = 0; //take less damage
@@ -29,6 +31,16 @@
 				{
 					this.health = 100 + this.con * 5;
 				}
+			}
+			
+			function mission(NAME, DAMAGE, HEALTH)
+			{
+				this.name = NAME;
+				
+				this.damage = DAMAGE;
+				this.health = HEALTH;
+				
+				this.exp = EXP;
 			}
 		</script>	
 	</head>
