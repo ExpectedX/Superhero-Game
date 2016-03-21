@@ -11,6 +11,8 @@
 		<script>
 			function initialize()
 			{
+				PLAYING = 0, END = 1;
+				gameState = PLAYING;
 				missionNames = [["Cat stuck in a tree", "Tree", 1], 
 					["Group of thugs loitering", "Thugs", 2], 
 					["Bank robbery", "Robbers", 3], 
@@ -20,12 +22,13 @@
 					["The Flash avoids speeding ticket", "The Flash", 10]];
 			  
 				missions = [];
-				
 			}
 			
 			function createHero(NAME)
 			{
 				player = new Hero(NAME); //this is the first thing that the player can do
+				
+				//missionTimer = setTimeout(generateMission, 3000);
 			}
 			
 			function generateMission()
@@ -35,15 +38,51 @@
 				missions.push(new Mission(randMission [0], randMission [1], randMission [2]));
 			}
 			
-			function checkLevelUp()
+			function checkLevelUp(HERO)
 			{
-				expToLevelUp = Math.pow(player.level, 2) * 2 + 150;
+				expToLevelUp = Math.pow(HERO.level, 2) * 2 + 150;
 				
-				if (player.exp >= expToLevelUp)
+				if (HERO.exp >= expToLevelUp)
 				{
-					player.level ++;
-					player.exp = 0;
+					HERO.level ++;
+					HERO.exp = HERO.exp - expToLevelUp;
+					
+					HERO.restoreHealth();
 				}
+			}
+			
+			function checkDeath(HERO)
+			{
+				if (HERO.health <= 0)
+					gameState = END;
+			}
+			
+			function fight(MISSION)
+			{
+				if(gameState == PLAYING)
+				{
+				
+				}
+			}
+			
+			
+			
+			function showMission()
+			{
+				/*
+					create new div
+					div innerHTML = latest mission name
+					onclick fight function
+					
+					add new div to the mission list display div
+				*/
+			}
+			
+			function display()
+			{
+				/*
+					display name/level/exp etc of hero
+				*/
 			}
 		</script>	
 	</head>
